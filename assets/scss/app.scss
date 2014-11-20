@@ -13,6 +13,18 @@ Include the Foundation settings
 
 @import "_foundation";
 
+/*=================================================================  
+  
+    Other awesome sass stuff
+    We want Bourbon and slick
+
+=================================================================*/
+
+$fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts"; // for referencing Bootstrap CDN font files directly
+
+@import "bower_components/bourbon/app/assets/stylesheets/bourbon",
+		"bower_components/fontawesome/scss/font-awesome",
+		"bower_components/slick-carousel/slick/slick";
 
 
 /*=================================================================
@@ -22,6 +34,7 @@ Import Roots Components - Do your SASS awesomeness here! Goodspeed young travele
 
 @import "_global";                   // Base styling & custom mixins
 @import "components/_buttons";       // Button tweaks
+@import "components/_navigation";    // TM Navigation
 @import "components/_forms";         // Form tweaks
 @import "components/_media";         // WordPress media
 @import "components/_wp-classes";    // WordPress generated classes

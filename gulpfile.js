@@ -50,22 +50,25 @@ var jshint = require("gulp-jshint");					// jshint
 
 			// Gets Foundation JS change to only include the scripts you'll need
 			'bower_components/foundation/js/foundation/foundation.js',
-			'bower_components/foundation/js/foundation/foundation.abide.js',
-			'bower_components/foundation/js/foundation/foundation.accordion.js',
-			'bower_components/foundation/js/foundation/foundation.alert.js',
-			'bower_components/foundation/js/foundation/foundation.clearing.js',
-			'bower_components/foundation/js/foundation/foundation.dropdown.js',
-			'bower_components/foundation/js/foundation/foundation.equalizer.js',
-			'bower_components/foundation/js/foundation/foundation.interchange.js',
-			'bower_components/foundation/js/foundation/foundation.joyride.js',
-			'bower_components/foundation/js/foundation/foundation.magellan.js',
-			'bower_components/foundation/js/foundation/foundation.offcanvas.js',
-			'bower_components/foundation/js/foundation/foundation.orbit.js',
-			'bower_components/foundation/js/foundation/foundation.reveal.js',
-			'bower_components/foundation/js/foundation/foundation.slider.js',
-			'bower_components/foundation/js/foundation/foundation.tab.js',
-			'bower_components/foundation/js/foundation/foundation.tooltip.js',
-			'bower_components/foundation/js/foundation/foundation.topbar.js',
+			// 'bower_components/foundation/js/foundation/foundation.abide.js',
+			// 'bower_components/foundation/js/foundation/foundation.accordion.js',
+			// 'bower_components/foundation/js/foundation/foundation.alert.js',
+			// 'bower_components/foundation/js/foundation/foundation.clearing.js',
+			// 'bower_components/foundation/js/foundation/foundation.dropdown.js',
+			// 'bower_components/foundation/js/foundation/foundation.equalizer.js',
+			// 'bower_components/foundation/js/foundation/foundation.interchange.js',
+			// 'bower_components/foundation/js/foundation/foundation.joyride.js',
+			// 'bower_components/foundation/js/foundation/foundation.magellan.js',
+			// 'bower_components/foundation/js/foundation/foundation.offcanvas.js',
+			// 'bower_components/foundation/js/foundation/foundation.orbit.js',
+			// 'bower_components/foundation/js/foundation/foundation.reveal.js',
+			// 'bower_components/foundation/js/foundation/foundation.slider.js',
+			// 'bower_components/foundation/js/foundation/foundation.tab.js',
+			// 'bower_components/foundation/js/foundation/foundation.tooltip.js',
+			// 'bower_components/foundation/js/foundation/foundation.topbar.js',
+
+			// Slick Carousel
+			'bower_components/slick-carousel/slick/slick.js',
 
 			// moving on...
 			'assets/js/plugins/*.js',							// Gets all the user plugins
