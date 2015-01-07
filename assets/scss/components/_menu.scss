@@ -1,0 +1,13 @@
+.main-navigation {
+
+	ul {
+		margin: 0;
+		list-style: none;
+		li {
+			@include rem-fallback('padding', 0, 1, 0, 1);
+			float: left;
+		}
+
+	}
+
+}

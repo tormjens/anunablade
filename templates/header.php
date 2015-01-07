@@ -1,17 +1,15 @@
-<div class="contain-to-grid">
-	<header>
-		
-		<nav class="top-bar" data-topbar>
-			<ul class="title-area">
-				<li class="name"> <h1><a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name'); ?></a></h1> </li>
-				<li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-			</ul>
+<header class="main-header">
+	<div class="row">
+		<section class="inner-header small-12 columns">
+			<h1 class="site-title">
+				<a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name'); ?></a>
+			</h1>
 
-			<section class="top-bar-section">
-				<?php if (has_nav_menu('primary_navigation')) :
-					wp_nav_menu(array('theme_location' => 'primary_navigation', 'menu_class' => 'right'));
+			<nav class="main-navigation">
+				<?php if ( has_nav_menu( 'primary_navigation' ) ) :
+					wp_nav_menu( array( 'theme_location' => 'primary_navigation' ) );
 				endif; ?>
-			</section>
-		</nav>
-	</header>
-</div> <!-- contain-to-grid -->
+			</nav>
+		</section>
+	</div>
+</header> <!-- contain-to-grid -->
