@@ -1,5 +1,11 @@
 <?php
 /**
+ * Extra functions
+ *
+ * @package anunastart
+ */
+
+/**
  * Clean up the_excerpt()
  */
 function roots_excerpt_more($more) {
@@ -22,50 +28,19 @@ function roots_wp_title($title) {
 add_filter('wp_title', 'roots_wp_title', 10);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /**
- * Custom functions, all this is optional
- * Mosly cleaning up the admin interface.
- * Comment out what you don't need, and uncomment what you want.
+ * Adds foundations flex video container around oembed embeds
  */
-
-
-
-//
-//		Adds foundations flex video container around oembed embeds
-//
-//////////////////////////////////////////////////////////////////////
-
-
-add_filter('embed_oembed_html', 'embed_oembed', 99, 4);
 function embed_oembed($html, $url, $attr, $post_id) {
 	return '<div class="flex-video">' . $html . '</div>';
 }
 
+add_filter('embed_oembed_html', 'embed_oembed', 99, 4);
 
 
-
-
-
-
-//
-//		Fixes overlapping adminbar for Foundations top-bar
-//
-//////////////////////////////////////////////////////////////////////
-
-
-add_action('wp_head', 'admin_bar_fix', 5);
+/**
+ * Fixes overlapping adminbar for Foundations top-bar
+ */
 function admin_bar_fix() {
 	if( is_admin_bar_showing() ) {
 		$output	= '<style type="text/css">'."\n\t";
@@ -75,44 +50,23 @@ function admin_bar_fix() {
 	}
 }
 
+add_action('wp_head', 'admin_bar_fix', 5);
 
 
-
-
-
-
-//
-//		Adds Foundation classes to next/prev buttons
-//
-//////////////////////////////////////////////////////////////////////
-
-
-add_filter('next_posts_link_attributes', 'posts_link_attributes');
-add_filter('previous_posts_link_attributes', 'posts_link_attributes');
-
+/**
+ * Adds Foundation classes to next/prev buttons
+ */
 function posts_link_attributes() {
 		return 'class="button tiny"';
 }
 
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 
-
-
-
-
-
-
-
-
-
-
-
-//
-//		Adds the livereload script. Primarily for testing other devices on same network as web server
-//		Change the IP address to the IP of the computer thats running the "gulp" command (likely your dev computer)	
-//
-//////////////////////////////////////////////////////////////////////
-
-
+/**
+ * Adds the livereload script. Primarily for testing other devices on same network as web server
+ * Change the IP address to the IP of the computer thats running the "gulp" command (likely your dev computer)	
+ */
 function livereload() {
 	wp_register_script('livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true);
 	wp_enqueue_script('livereload');
@@ -124,20 +78,9 @@ function livereload() {
 		add_action('wp_enqueue_scripts', 'livereload');
 // }
 
-
-
-
-
-
-
-
-//
-//		Removes default dashboard widgets
-//
-//////////////////////////////////////////////////////////////////////
-
-
-
+/**
+ * Removes default dashboard widgets
+ */
 function remove_dashboard_widgets() {
 		global $wp_meta_boxes;
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
@@ -148,19 +91,10 @@ function remove_dashboard_widgets() {
 }
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 
-
-
-
-
-
-
-//
-//		Remove meta boxes from post & pages. Uncomment if you want
-//		cleaner post and pages(like the attributes, tags and category)
-//
-//////////////////////////////////////////////////////////////////////
-
-
+/**
+ * Remove meta boxes from post & pages. Uncomment if you want
+ * cleaner post and pages(like the attributes, tags and category)
+ */
 
 // function remove_meta_boxes() {
 // 	remove_meta_box( 'pageparentdiv' , 'page', 'normal'); // Removes attributes page
@@ -169,44 +103,17 @@ add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 // }
 // add_action('do_meta_boxes', 'remove_meta_boxes');
 
-
-
-
-
-
-
-
-
-
-//
-//		Removes comments menu
-//
-//////////////////////////////////////////////////////////////////////
-
-
+/**
+ * Removes comments menu
+ */
 // function remove_menus(){
 //	 remove_menu_page( 'edit-comments.php' );
 // }
 // add_action( 'admin_menu', 'remove_menus' );
 
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//		Removes Types (custom post type generator) marketing
-//
-//////////////////////////////////////////////////////////////////////
-
-
+/**
+ * Removes Types (custom post type generator) marketing
+ */
 // function adminstyle() {
 //		echo '<style type="text/css">
 //						#wpcf-marketing { display: none;}

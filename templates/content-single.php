@@ -1,3 +1,10 @@
+<?php  
+/**
+ * Template for displaying the content of singles
+ *
+ * @package anunastart
+ */
+?>
 <?php while (have_posts()) : the_post(); ?>
 	<article <?php post_class(); ?>>
 		<header>

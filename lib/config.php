@@ -1,6 +1,8 @@
 <?php
 /**
  * Enable theme features
+ *
+ * @package anunastart
  */
 
 add_theme_support('soil-clean-up');				 // Enable clean up from Soil

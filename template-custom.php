@@ -1,7 +1,11 @@
 <?php
-/*
-Template Name: Custom Template
-*/
+/**
+ * Template Name: Custom Template
+ *
+ * A page template
+ *
+ * @package anunastart
+ */
 ?>
 
 <?php while (have_posts()) : the_post(); ?>

@@ -1,9 +1,14 @@
+<?php  
+/**
+ * Base Template File
+ *
+ * @package anunastart
+ */
+?>
+
 <?php get_template_part('templates/head'); ?>
 
-
 <body <?php body_class(); ?>>
-
-
 
 	<!--[if lt IE 8]>
 		<div class="alert-box warning">
@@ -11,17 +16,11 @@
 		</div>
 	<![endif]-->
 
-
-
-
 	<?php
 		// Header
 	  	do_action('get_header');
 	  	get_template_part('templates/header');
 	?>
-
-
-
 
   	<div class="content row" role="document">
 		<main class="main <?php echo roots_main_class(); ?> columns" role="main">
@@ -34,19 +33,13 @@
 		<?php endif; ?>
 	</div><!-- /.content -->
 
-
 	<?php
-		// Navigation
+		// Navigation (off canvas)
 		// is loaded after content
 	  	get_template_part('templates/navigation');
 	?>
 
-
   	<?php get_template_part('templates/footer'); ?>
-
-
-
-
 
 </body>
 </html>

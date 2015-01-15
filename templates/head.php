@@ -1,3 +1,10 @@
+<?php  
+/**
+ * Template for displaying the head-part
+ *
+ * @package anunastart
+ */
+?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?>>
 <head>

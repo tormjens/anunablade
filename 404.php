@@ -1,3 +1,10 @@
+<?php  
+/**
+ * Error file
+ *
+ * @package anunastart
+ */
+?>
 <?php get_template_part('templates/page', 'header'); ?>
 
 <div data-alert class="alert-box warning">

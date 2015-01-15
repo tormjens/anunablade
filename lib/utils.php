@@ -33,8 +33,10 @@ else {
 
 	function anuna_img_settings( $settings ) {
 
-		$settings['theme_folder'] = '/assets/img/';
-
+		if( is_array( $settings ) ) {
+			$settings['theme_folder'] = '/assets/img/';
+		}
+		
 		return $settings;
 
 	}

@@ -1,3 +1,10 @@
+<?php  
+/**
+ * Template for displaying the search form
+ *
+ * @package anunastart
+ */
+?>
 <form role="search" method="get" class="search" action="<?php echo esc_url(home_url('/')); ?>">
 	<div class="row">
 		<div class="small-12 columns">

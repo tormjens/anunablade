@@ -3,6 +3,8 @@
  * Use Bootstrap's media object for listing comments
  *
  * @link http://getbootstrap.com/components/#media
+ *
+ * @package anunastart
  */
 class Roots_Walker_Comment extends Walker_Comment {
 	function start_lvl(&$output, $depth = 0, $args = array()) {

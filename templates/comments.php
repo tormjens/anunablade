@@ -1,3 +1,11 @@
+<?php  
+/**
+ * Template for displaying comments
+ *
+ * @package anunastart
+ */
+?>
+
 <?php
 	if (post_password_required()) {
 		return;

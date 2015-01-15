@@ -1,3 +1,10 @@
+<?php  
+/**
+ * Template for displaying the off canvas navigation
+ *
+ * @package anunastart
+ */
+?>
 <div class="off-canvas-navigation" tab-index="-1" data-off-canvas-navigation>
 	
 	<div class="navigation-inner">
