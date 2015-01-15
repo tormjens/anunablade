@@ -28,3 +28,43 @@
     #{$property}: $pxValues; 
     #{$property}: $remValues; 
 }
+
+// Lenker
+// Må skille seg fra vanlig tekst i henhold til UU
+// link: http://uu.difi.no/veiledning/nettsider/uu-skolen/lenker
+a {
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus, &:active {
+        text-decoration: none;
+        border-bottom: 1px solid black;
+        outline: none;
+    }
+}
+
+// Tilgjengelighet
+a.skip {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    height: 1px;
+    width: 1px;
+    text-align: left;
+    overflow: hidden;
+    background: #efefef;
+    border: 1px solid black;
+    padding: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    &:active, 
+    &:focus, 
+    &:hover {
+        left: 0; 
+        top: 0;
+        width: auto; 
+        height: auto; 
+        overflow: visible; 
+    }
+}

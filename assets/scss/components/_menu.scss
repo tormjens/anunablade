@@ -6,6 +6,15 @@
 		li {
 			@include rem-fallback('padding', 0, 1, 0, 1);
 			float: left;
+			a {
+				&:hover {
+
+				}
+				&:focus, &:active {
+					border-bottom: 1px dotted #000;
+					outline: none;
+				}
+			}
 		}
 
 	}

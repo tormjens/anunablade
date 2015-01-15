@@ -12,6 +12,8 @@
 				<a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name'); ?></a>
 			</h1>
 
+			<?php get_template_part( 'templates/navigation', 'trigger' ); ?>
+
 			<nav class="main-navigation">
 				<?php if ( has_nav_menu( 'primary_navigation' ) ) :
 					wp_nav_menu( array( 'theme_location' => 'primary_navigation' ) );
@@ -20,5 +22,3 @@
 		</section>
 	</div>
 </header> <!-- contain-to-grid -->
-
-<?php anuna_img( 'http://local.wordpress-trunk.dev/wp-content/uploads/2015/01/1273593_10151878332770775_195781698_o.jpg', 'type=url&width=500&height=200' ); ?>
