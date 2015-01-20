@@ -8,13 +8,14 @@ msgstr ""
 "Last-Translator: Harald Ringvold <harald.ringvold@gmail.com>\n"
 "Language-Team: Harald Ringvold <harald.ringvold@gmail.com>\n"
 "MIME-Version: 1.0\n"
-"X-Poedit-Language: Norwegian Bokmål\n"
-"X-Poedit-Country: NORWAY\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Language: nb_NO\n"
+"X-Generator: Poedit 1.7.3\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
 
 #. Text in echo
-#: comments.php:72
-#: comments.php:76
+#: comments.php:72 comments.php:76
 msgid " (required)"
 msgstr " (obligatorisk)"
 
@@ -24,14 +25,12 @@ msgid "#fullwidth CSS Classes"
 msgstr "#fullwidth CSS Classes"
 
 #. Text in echo
-#: inc/roots-options.php:238
-#: inc/roots-options.php:240
+#: inc/roots-options.php:238 inc/roots-options.php:240
 msgid "#main CSS Classes"
 msgstr "#main CSS Classes"
 
 #. Text in echo
-#: inc/roots-options.php:248
-#: inc/roots-options.php:250
+#: inc/roots-options.php:248 inc/roots-options.php:250
 msgid "#sidebar CSS Classes"
 msgstr "#sidebar CSS Classes"
 
@@ -101,8 +100,7 @@ msgid "Add all current published pages to the Primary Navigation"
 msgstr "Legg alle publiserte sider til i hovednavigasjonen."
 
 #. Text in echo
-#: inc/roots-activation.php:137
-#: inc/roots-activation.php:139
+#: inc/roots-activation.php:137 inc/roots-activation.php:139
 msgid "Add pages to menu?"
 msgstr "Legg til sider i menyen?"
 
@@ -132,8 +130,7 @@ msgid "Bootstrap w/ Less"
 msgstr "Bootstrap w/ Less"
 
 #. Text in echo
-#: inc/roots-options.php:226
-#: inc/roots-options.php:228
+#: inc/roots-options.php:226 inc/roots-options.php:228
 msgid "CSS Grid Framework"
 msgstr "CSS Grid Framework"
 
@@ -168,8 +165,7 @@ msgid "City/Locality:"
 msgstr "By/Område:"
 
 #. Text in echo
-#: inc/roots-options.php:315
-#: inc/roots-options.php:317
+#: inc/roots-options.php:315 inc/roots-options.php:317
 msgid "Cleanup Menu Output"
 msgstr "Rens menyutdata"
 
@@ -184,8 +180,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #. Text in echo
-#: comments.php:49
-#: comments.php:56
+#: comments.php:49 comments.php:56
 msgid "Comments are closed."
 msgstr "Kommentarene er stengt."
 
@@ -200,14 +195,12 @@ msgid "Create a page called Home and set it to be the static front page"
 msgstr "Opprett en side som heter Hjem, og sett den som statisk forside"
 
 #. Text in echo
-#: inc/roots-activation.php:124
-#: inc/roots-activation.php:126
+#: inc/roots-activation.php:124 inc/roots-activation.php:126
 msgid "Create navigation menus?"
 msgstr "Opprett navigasjon/menyer?"
 
 #. Text in echo
-#: inc/roots-activation.php:85
-#: inc/roots-activation.php:87
+#: inc/roots-activation.php:85 inc/roots-activation.php:87
 msgid "Create static front page?"
 msgstr "Opprett statisk forside?"
 
@@ -222,8 +215,7 @@ msgid "Daily Archives: %s"
 msgstr "Daglige arkiv: %s"
 
 #. Text in echo
-#: inc/roots-options.php:243
-#: inc/roots-options.php:253
+#: inc/roots-options.php:243 inc/roots-options.php:253
 #: inc/roots-options.php:263
 msgid "Default:"
 msgstr "Standard:"
@@ -244,8 +236,7 @@ msgid "Enable Bootstrap Javascript"
 msgstr "Aktiver  Bootstrap Javascript"
 
 #. Text in echo
-#: inc/roots-options.php:304
-#: inc/roots-options.php:306
+#: inc/roots-options.php:304 inc/roots-options.php:306
 msgid "Enable Root Relative URLs"
 msgstr "Aktiver rotrelative URLer"
 
@@ -270,8 +261,7 @@ msgid "Full Width CSS Classes"
 msgstr "Full Width CSS Classes"
 
 #. Text in echo
-#: inc/roots-options.php:294
-#: inc/roots-options.php:296
+#: inc/roots-options.php:294 inc/roots-options.php:296
 msgid "Google Analytics ID"
 msgstr "Google Analytics ID"
 
@@ -331,10 +321,8 @@ msgid "Newer posts &rarr;"
 msgstr "Nyere innlegg &rarr;"
 
 #. Text in echo
-#: inc/roots-activation.php:142
-#: inc/roots-options.php:274
-#: inc/roots-options.php:287
-#: inc/roots-options.php:309
+#: inc/roots-activation.php:142 inc/roots-options.php:274
+#: inc/roots-options.php:287 inc/roots-options.php:309
 #: inc/roots-options.php:320
 msgid "No"
 msgstr "Nei"
@@ -345,8 +333,7 @@ msgid "None"
 msgstr "Ingen"
 
 #. Text in function
-#: loop-single.php:14
-#: loop-page.php:7
+#: loop-single.php:14 loop-page.php:7
 msgid "Pages:"
 msgstr "Sider:"
 
@@ -386,8 +373,7 @@ msgid "Roots: vCard"
 msgstr "Roots: vCard"
 
 #. Text in echo
-#: searchform.php:3
-#: searchform.php:4
+#: searchform.php:3 searchform.php:4
 msgid "Search"
 msgstr "Søk"
 
@@ -487,10 +473,8 @@ msgid "Yearly Archives: %s"
 msgstr "Årlige arkiv: %s"
 
 #. Text in echo
-#: inc/roots-activation.php:141
-#: inc/roots-options.php:273
-#: inc/roots-options.php:286
-#: inc/roots-options.php:308
+#: inc/roots-activation.php:141 inc/roots-options.php:273
+#: inc/roots-options.php:286 inc/roots-options.php:308
 #: inc/roots-options.php:319
 msgid "Yes"
 msgstr "Ja"
@@ -514,4 +498,3 @@ msgstr "Postnr.:"
 #: inc/roots-widgets.php:1
 msgid "vCard"
 msgstr "Visittkort (vCard)"
-
