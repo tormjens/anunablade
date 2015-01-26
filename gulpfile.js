@@ -26,7 +26,8 @@ var jshint = require("gulp-jshint");					// jshint
 			'bower_components/foundation/scss/normalize.scss',         // Gets normalize
 			'assets/scss/app.scss'])                                   // Gets the apps scss
 			.pipe(sass({style: 'compressed', errLogToConsole: true}))  // Compile sass
-			.pipe(concat('main.css'))                                  // Concat all css
+			.pipe(concat('main.css'))                                // Minify the CSS
+			.pipe(gulp.dest('assets/css/'))                               // Concat all css
 			.pipe(rename({suffix: '.min'}))                            // Rename it
 			.pipe(minifycss())                                         // Minify the CSS
 			.pipe(gulp.dest('assets/css/'))                            // Set the destination to assets/css
@@ -73,7 +74,8 @@ var jshint = require("gulp-jshint");					// jshint
 			// moving on...
 			'assets/js/plugins/*.js',							// Gets all the user plugins
 			'assets/js/_*.js'])										// Gets all the user JS _*.js from assets/js
-			.pipe(concat('scripts.js'))								// Concat all the scripts
+			.pipe(concat('scripts.js'))							// Uglify(minify)
+			.pipe(gulp.dest('assets/js/'))							// Concat all the scripts
 			.pipe(rename({suffix: '.min'}))							// Rename it
 			.pipe(uglify())											// Uglify(minify)
 			.pipe(gulp.dest('assets/js/'))							// Set destination to assets/js

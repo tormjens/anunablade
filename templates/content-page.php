@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
  * Template for displaying the content of a page
  *
@@ -6,4 +6,4 @@
  */
 ?>
 <?php the_content(); ?>
-<?php wp_link_pages(array('before' => '<nav class="pagination">', 'after' => '</nav>')); ?>
+<?php wp_link_pages( array( 'before' => '<nav class="pagination">', 'after' => '</nav>' ) ); ?>

@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
  * Template for displaying single content
  *
@@ -6,4 +6,4 @@
  */
 ?>
 
-<?php get_template_part('templates/content', 'single'); ?>
+<?php get_template_part( 'templates/content', 'single' ); ?>

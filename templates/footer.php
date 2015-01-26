@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
  * Template for displaying the footer
  *
@@ -8,7 +8,7 @@
 <footer role="contentinfo">
 	<div class="row">
 		<div class="small-12 columns">
-			<?php dynamic_sidebar('sidebar-footer'); ?>
+			<?php dynamic_sidebar( 'sidebar-footer' ); ?>
 		</div>
 	</div>
 </footer>
