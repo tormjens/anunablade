@@ -5339,12 +5339,17 @@ body.off-canvas-navigation-expanded {
     -moz-transition: right 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96);
     transition: right 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96); }
     div[data-off-canvas-navigation-wrapper] .off-canvas-overlay {
-      display: none;
       position: fixed;
       top: 0;
       bottom: 0;
       right: 0;
-      left: 0; }
+      left: 0;
+      opacity: 0;
+      pointer-events: none;
+      background-color: rgba(0, 0, 0, 0.4);
+      -webkit-transition: opacity 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96);
+      -moz-transition: opacity 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96);
+      transition: opacity 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96); }
     div[data-off-canvas-navigation-wrapper].off-canvas-navigation-expanded {
       right: -7.8125rem;
       pointer-events: none;
@@ -5352,7 +5357,8 @@ body.off-canvas-navigation-expanded {
       div[data-off-canvas-navigation-wrapper].off-canvas-navigation-expanded .off-canvas-overlay {
         display: block;
         pointer-events: auto;
-        cursor: pointer; } }
+        cursor: pointer;
+        opacity: 1; } }
 
 div[data-off-canvas-navigation] {
   display: none; }

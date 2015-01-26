@@ -65,12 +65,15 @@ div[data-off-canvas-navigation-wrapper] {
 		@include off-canvas-navigation-wrapper(0);
 		@include transition( $nav-position-wrapper 1.2s cubic-bezier(.35,.96,.58,.96) );
 		.off-canvas-overlay {
-			display: none;
 			position: fixed;
 			top: 0;
 			bottom: 0;
 			right: 0;
 			left: 0;
+			opacity: 0;
+			pointer-events: none;
+			background-color: transparentize(#000, 0.6);
+			@include transition( opacity 1.2s cubic-bezier(.35,.96,.58,.96) );
 		}
 		&.off-canvas-navigation-expanded {
 			@include off-canvas-navigation-wrapper(1);
@@ -80,6 +83,7 @@ div[data-off-canvas-navigation-wrapper] {
 				display: block;
 				pointer-events: auto;
 				cursor: pointer;
+				opacity: 1;
 			}
 		}
 	}
