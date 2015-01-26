@@ -5335,9 +5335,9 @@ body.off-canvas-navigation-expanded {
   div[data-off-canvas-navigation-wrapper] {
     position: relative;
     right: 0;
-    -webkit-transition: right 0.5s ease-in-out;
-    -moz-transition: right 0.5s ease-in-out;
-    transition: right 0.5s ease-in-out; }
+    -webkit-transition: right 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96);
+    -moz-transition: right 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96);
+    transition: right 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96); }
     div[data-off-canvas-navigation-wrapper] .off-canvas-overlay {
       display: none;
       position: fixed;
@@ -5366,9 +5366,9 @@ div[data-off-canvas-navigation] {
       position: fixed;
       top: 0;
       bottom: 0;
-      -webkit-transition: left 0.3s ease-in-out;
-      -moz-transition: left 0.3s ease-in-out;
-      transition: left 0.3s ease-in-out; }
+      -webkit-transition: left 1s cubic-bezier(0.35, 0.96, 0.58, 0.96);
+      -moz-transition: left 1s cubic-bezier(0.35, 0.96, 0.58, 0.96);
+      transition: left 1s cubic-bezier(0.35, 0.96, 0.58, 0.96); }
       div[data-off-canvas-navigation].expand {
         left: 0; }
       div[data-off-canvas-navigation] .navigation-inner {

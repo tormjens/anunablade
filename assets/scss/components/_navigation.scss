@@ -63,7 +63,7 @@ div[data-off-canvas-navigation-wrapper] {
 	@media #{$nav-breakpoint} {
 		position: relative;
 		@include off-canvas-navigation-wrapper(0);
-		@include transition( $nav-position-wrapper .5s ease-in-out );
+		@include transition( $nav-position-wrapper 1.2s cubic-bezier(.35,.96,.58,.96) );
 		.off-canvas-overlay {
 			display: none;
 			position: fixed;
@@ -97,7 +97,7 @@ div[data-off-canvas-navigation] {
 		position: fixed;
 		top: 0;
 		bottom: 0;
-		@include transition( $nav-position .3s ease-in-out );
+		@include transition( $nav-position 1s cubic-bezier(.35,.96,.58,.96) );
 		&.expand {
 			@include off-canvas-navigation-position(1);
 		}
