@@ -18,30 +18,36 @@
 		</div>
 	<![endif]-->
 
-	<?php
-	// Header
-	do_action( 'get_header' );
-	get_template_part( 'templates/header' );
-	?>
+	<div class="main-wrapper" data-off-canvas-navigation-wrapper>
 
-  	<div id="content" class="content row" role="document">
-		<main id="main" class="main <?php echo roots_main_class(); ?> columns" role="main">
-		  	<?php include roots_template_path(); ?>
-		</main><!-- /.main -->
-		<?php if ( roots_display_sidebar() ) : ?>
-		  	<aside id="sidebar" class="sidebar <?php echo roots_sidebar_class(); ?> columns" role="complementary">
-				<?php include roots_sidebar_path(); ?>
-		  	</aside><!-- /.sidebar -->
-		<?php endif; ?>
-	</div><!-- /.content -->
+		<div class="off-canvas-overlay"></div>
+
+		<?php
+		// Header
+		do_action( 'get_header' );
+		get_template_part( 'templates/header' );
+		?>
+
+	  	<div id="content" class="content row" role="document">
+			<main id="main" class="main <?php echo roots_main_class(); ?> columns" role="main">
+			  	<?php include roots_template_path(); ?>
+			</main><!-- /.main -->
+			<?php if ( roots_display_sidebar() ) : ?>
+			  	<aside id="sidebar" class="sidebar <?php echo roots_sidebar_class(); ?> columns" role="complementary">
+					<?php include roots_sidebar_path(); ?>
+			  	</aside><!-- /.sidebar -->
+			<?php endif; ?>
+		</div><!-- /.content -->
+
+  		<?php get_template_part( 'templates/footer' ); ?>
+
+  	</div>
 
 	<?php
 	// Navigation (off canvas)
 	// is loaded after content
 	get_template_part( 'templates/navigation' );
 	?>
-
-  	<?php get_template_part( 'templates/footer' ); ?>
 
 </body>
 </html>
