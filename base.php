@@ -20,8 +20,6 @@
 
 	<div class="main-wrapper" data-off-canvas-navigation-wrapper>
 
-		<div class="off-canvas-overlay"></div>
-
 		<?php
 		// Header
 		do_action( 'get_header' );
@@ -40,6 +38,8 @@
 		</div><!-- /.content -->
 
   		<?php get_template_part( 'templates/footer' ); ?>
+
+		<div class="off-canvas-overlay"></div>
 
   	</div>
 

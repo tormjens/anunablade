@@ -73,7 +73,7 @@ div[data-off-canvas-navigation-wrapper] {
 			opacity: 0;
 			pointer-events: none;
 			background-color: transparentize(#000, 0.6);
-			@include transition( opacity 1.2s cubic-bezier(.35,.96,.58,.96) );
+			@include transition( opacity 2s cubic-bezier(.35,.96,.58,.96) );
 		}
 		&.off-canvas-navigation-expanded {
 			@include off-canvas-navigation-wrapper(1);
