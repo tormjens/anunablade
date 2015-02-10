@@ -14,7 +14,7 @@
         @if $i < $max {
             $pxValues: #{$pxValues + " "};
         }
-    } 
+    }
 
     @for $i from 1 through $max {
         $value: strip-unit(nth($values, $i));
@@ -23,10 +23,10 @@
         @if $i < $max {
             $remValues: #{$remValues + " "};
         }
-    } 
+    }
 
-    #{$property}: $pxValues; 
-    #{$property}: $remValues; 
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
 }
 
 // Lenker
@@ -58,13 +58,13 @@ a.skip {
     padding: 10px;
     margin-left: 10px;
     margin-top: 10px;
-    &:active, 
-    &:focus, 
+    &:active,
+    &:focus,
     &:hover {
-        left: 0; 
+        left: 0;
         top: 0;
-        width: auto; 
-        height: auto; 
-        overflow: visible; 
+        width: auto;
+        height: auto;
+        overflow: visible;
     }
 }

@@ -371,7 +371,7 @@ body {
   color: #222;
   padding: 0;
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   font-weight: normal;
   font-style: normal;
   line-height: 1.5;
@@ -1459,7 +1459,7 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -2405,7 +2405,7 @@ select {
   border-color: #cccccc;
   padding: 0.5rem;
   font-size: 0.875rem;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   color: rgba(0, 0, 0, 0.75);
   line-height: normal;
   border-radius: 0;
@@ -2537,7 +2537,7 @@ label.error {
 
 .label {
   font-weight: normal;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   text-align: center;
   text-decoration: none;
   line-height: 1;
@@ -2619,7 +2619,7 @@ ul.pagination {
   padding: 0.875rem 0;
   list-style-type: none;
   list-style-position: outside;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+  font-family: 'Droid Sans', sans-serif; }
   .side-nav li {
     margin: 0 0 0.4375rem 0;
     font-size: 0.875rem;
@@ -2635,7 +2635,7 @@ ul.pagination {
     .side-nav li.active > a:first-child:not(.button) {
       color: #1ccaff;
       font-weight: normal;
-      font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+      font-family: 'Droid Sans', sans-serif; }
     .side-nav li.divider {
       border-top: 1px solid;
       height: 0;
@@ -2789,7 +2789,7 @@ ul.pagination {
     display: inline;
     margin-left: 1rem;
     margin-bottom: 0;
-    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    font-family: 'Droid Sans', sans-serif;
     font-weight: normal;
     font-size: 0.875rem;
     color: #999999; }
@@ -3002,7 +3002,7 @@ p {
 
 /* Default header styles */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   font-weight: normal;
   font-style: normal;
   color: #222222;
@@ -5331,6 +5331,9 @@ a.skip {
 body.off-canvas-navigation-expanded {
   overflow-x: hidden; }
 
+div[data-off-canvas-navigation-wrapper] .off-canvas-overlay {
+  opacity: 0;
+  display: none; }
 @media only screen and (max-width:64em) {
   div[data-off-canvas-navigation-wrapper] {
     position: relative;
@@ -5340,6 +5343,7 @@ body.off-canvas-navigation-expanded {
     transition: right 1.2s cubic-bezier(0.35, 0.96, 0.58, 0.96); }
     div[data-off-canvas-navigation-wrapper] .off-canvas-overlay {
       position: fixed;
+      display: block;
       top: 0;
       bottom: 0;
       right: 0;

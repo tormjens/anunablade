@@ -60,12 +60,18 @@ body.off-canvas-navigation-expanded {
 // style for container
 div[data-off-canvas-navigation-wrapper] {
 
+	.off-canvas-overlay {
+		opacity: 0;
+		display: none;
+	}
+
 	@media #{$nav-breakpoint} {
 		position: relative;
 		@include off-canvas-navigation-wrapper(0);
 		@include transition( $nav-position-wrapper 1.2s cubic-bezier(.35,.96,.58,.96) );
 		.off-canvas-overlay {
 			position: fixed;
+			display: block;
 			top: 0;
 			bottom: 0;
 			right: 0;
@@ -114,6 +120,7 @@ div[data-off-canvas-navigation] {
 		}
 	}
 }
+
 
 // style for trigger
 div[data-off-canvas-navigation-trigger] {
