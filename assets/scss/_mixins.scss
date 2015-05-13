@@ -1,0 +1,108 @@
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
+}
+
+@mixin rem-fallback($property, $values...) {
+    $max: length($values);
+    $pxValues: '';
+    $remValues: '';
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $pxValues: #{$pxValues + $value*16}px;
+
+        @if $i < $max {
+            $pxValues: #{$pxValues + " "};
+        }
+    }
+
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $remValues: #{$remValues + $value}rem;
+
+        @if $i < $max {
+            $remValues: #{$remValues + " "};
+        }
+    }
+
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
+
+
+@mixin breakpoint($breakpoint, $orientation:"") {
+
+    $break: $breakpoint;
+    $orient: "";
+
+    @if $breakpoint == 'small' {
+        $break: $small-only;
+    }
+    @else if $breakpoint == 'small-up' {
+        $break: $small-up;
+    }
+    @else if $breakpoint == 'medium' {
+        $break: $medium-only;
+    }
+    @else if $breakpoint == 'medium-up' {
+        $break: $medium-up;
+    }
+    @else if $breakpoint == 'large' {
+        $break: $large-only;
+    }
+    @else if $breakpoint == 'large-up' {
+        $break: $large-up;
+    }
+    @else if $breakpoint == 'xlarge' {
+        $break: $xlarge-only;
+    }
+    @else if $breakpoint == 'xlarge-up' {
+        $break: $xlarge-up;
+    }
+    @else if $breakpoint == 'xxlarge-up' {
+        $break: $xxlarge-up;
+    }
+
+    @if $orientation != "" {
+        $orient: 'and (orientation : #{$orientation})';
+    }
+
+    $bp: #{$break} #{$orient};
+
+    @media #{$bp} {
+        @content;
+    }
+
+}
+
+$basefontsize: 16;
+$basepadd: 15;
+$baselineheight: 24;
+
+@mixin font($fontsize: 16, $lineheight: 24) {
+  font-size: $fontsize + px;
+  font-size: ($fontsize / $basefontsize) + rem;
+  line-height: ($lineheight / $fontsize);
+}
+
+$font-path: '../fonts/';
+
+@mixin font-face($style-name, $file, $family, $category:"", $weight: normal, $style: normal) {
+    $filepath: $font-path + $family + "/" + $file;
+    @font-face {
+        font-family: "#{$style-name}";
+        src: url($filepath + ".eot");
+        src:    url($filepath + ".eot?#iefix") format('embedded-opentype'), 
+                url($filepath + ".woff") format('woff'), 
+                url($filepath + ".ttf")  format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}

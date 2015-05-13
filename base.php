@@ -18,7 +18,7 @@
 		</div>
 	<![endif]-->
 
-	<div class="main-wrapper" data-off-canvas-navigation-wrapper>
+	<div class="main-wrapper">
 
 		<?php
 		// Header
@@ -39,15 +39,8 @@
 
   		<?php get_template_part( 'templates/footer' ); ?>
 
-		<div class="off-canvas-overlay"></div>
 
   	</div>
-
-	<?php
-	// Navigation (off canvas)
-	// is loaded after content
-	get_template_part( 'templates/navigation' );
-	?>
 
 </body>
 </html>

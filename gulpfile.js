@@ -68,8 +68,7 @@ var jshint = require("gulp-jshint");					// jshint
 			// 'bower_components/foundation/js/foundation/foundation.tooltip.js',
 			// 'bower_components/foundation/js/foundation/foundation.topbar.js',
 
-			// Slick Carousel
-			'bower_components/slick-carousel/slick/slick.js',
+			// Define other scripts that is used on all requests here
 
 			// moving on...
 			'assets/js/plugins/*.js',							// Gets all the user plugins

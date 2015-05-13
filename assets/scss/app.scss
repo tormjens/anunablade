@@ -13,6 +13,12 @@ Include the Foundation settings
 
 @import "_foundation";
 
+/*=================================================================
+Include the mixins
+=================================================================*/
+
+@import "_mixins";
+
 /*=================================================================  
   
     Other awesome sass stuff
@@ -23,8 +29,7 @@ Include the Foundation settings
 $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.2.0/fonts"; // for referencing Bootstrap CDN font files directly
 
 @import "bower_components/bourbon/app/assets/stylesheets/bourbon",
-		"bower_components/fontawesome/scss/font-awesome",
-		"bower_components/slick-carousel/slick/slick";
+		"bower_components/fontawesome/scss/font-awesome";
 
 
 /*=================================================================

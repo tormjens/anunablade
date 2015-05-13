@@ -1,32 +1,9 @@
-@function strip-unit($num) {
-    @return $num / ($num * 0 + 1);
+html {
+    -webkit-font-smoothing: antialiased;
 }
 
-@mixin rem-fallback($property, $values...) {
-    $max: length($values);
-    $pxValues: '';
-    $remValues: '';
-
-    @for $i from 1 through $max {
-        $value: strip-unit(nth($values, $i));
-        $pxValues: #{$pxValues + $value*16}px;
-
-        @if $i < $max {
-            $pxValues: #{$pxValues + " "};
-        }
-    }
-
-    @for $i from 1 through $max {
-        $value: strip-unit(nth($values, $i));
-        $remValues: #{$remValues + $value}rem;
-
-        @if $i < $max {
-            $remValues: #{$remValues + " "};
-        }
-    }
-
-    #{$property}: $pxValues;
-    #{$property}: $remValues;
+body {
+    -webkit-backface-visibility: hidden;
 }
 
 // Lenker
@@ -34,12 +11,12 @@
 // link: http://uu.difi.no/veiledning/nettsider/uu-skolen/lenker
 a {
     text-decoration: underline;
+    @include transition(color .2s ease-in-out);
     &:hover {
         text-decoration: none;
     }
     &:focus, &:active {
         text-decoration: none;
-        border-bottom: 1px solid black;
         outline: none;
     }
 }
@@ -48,6 +25,7 @@ a {
 a.skip {
     position: absolute;
     top: -1000px;
+    z-index: 99999;
     left: -1000px;
     height: 1px;
     width: 1px;
