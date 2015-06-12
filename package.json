@@ -1,6 +1,6 @@
 {
-  "name": "gromf",
-  "version": "0.0.2",
+  "name": "anunastart",
+  "version": "0.0.1",
   "description": "Wordpress starter theme, based on Roots",
   "main": "gulpfile.js",
   "devDependencies": {
@@ -24,14 +24,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/schikulski/gromf.git"
+    "url": "https://github.com/Anunatak/anunastart.git"
   },
-  "author": "Simen Schikulski",
+  "author": "Tor Morten Jensen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/schikulski/gromf/issues"
+    "url": "https://github.com/Anunatak/anunastart/issues"
   },
-  "homepage": "https://github.com/schikulski/gromf",
+  "homepage": "https://github.com/Anunatak/anunastart",
   "dependencies": {
     "bower": "^1.4.1",
     "gulp-file": "^0.2.0",

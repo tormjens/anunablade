@@ -1,9 +1,9 @@
 {
-  "name": "gromf",
-  "version": "0.2",
-  "homepage": "https://github.com/schikulski/gromf",
+  "name": "anunastart",
+  "version": "0.1",
+  "homepage": "https://github.com/Anunatak/anunastart",
   "authors": [
-    "Simen Schikulski <schikulski@gmail.com>"
+    "Tor Morten Jensen <tormorten@anunatak.no>"
   ],
   "description": "WordPress starter theme, based on Roots.",
   "keywords": [
