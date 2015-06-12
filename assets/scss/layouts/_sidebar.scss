@@ -1,1 +1,9 @@
-.sidebar { }
+.sidebar {
+	@include grid-column(12);
+	@include breakpoint(medium-up) {
+		@include grid-column(4);
+	}
+	@include breakpoint(large-up) {
+		@include grid-column(3);
+	}
+}

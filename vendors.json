@@ -1,0 +1,7 @@
+{
+	"files" : [
+		"bower_components/fastclick/lib/fastclick.js",
+		"bower_components/foundation/js/foundation.js",
+		"bower_components/jquery-dom-router/dist/jquery.dom-router.js"
+	]
+}

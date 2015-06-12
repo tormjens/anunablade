@@ -2,13 +2,6 @@
     @return $num / ($num * 0 + 1);
 }
 
-@mixin placeholder {
-  ::-webkit-input-placeholder {@content}
-  :-moz-placeholder           {@content}
-  ::-moz-placeholder          {@content}
-  :-ms-input-placeholder      {@content}  
-}
-
 @mixin rem-fallback($property, $values...) {
     $max: length($values);
     $pxValues: '';
@@ -105,4 +98,11 @@ $font-path: '../fonts/';
         font-weight: $weight;
         font-style: $style;
     }
+}
+
+@mixin placeholder {
+  ::-webkit-input-placeholder {@content}
+  :-moz-placeholder           {@content}
+  ::-moz-placeholder          {@content}
+  :-ms-input-placeholder      {@content}  
 }

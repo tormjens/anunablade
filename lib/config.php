@@ -16,6 +16,7 @@ add_theme_support( 'jquery-cdn' );      // Enable to load jQuery from the Google
  */
 define( 'POST_EXCERPT_LENGTH', 40 ); // Length in words for excerpt_length filter (http://codex.wordpress.org/Plugin_API/Filter_Reference/excerpt_length)
 define( 'GOOGLE_ANALYTICS_ID', '' ); // UA-XXXXX-Y (Note: Universal Analytics only, not Classic Analytics)
+define( 'TYPEKIT_ID', '' ); // ID to the typekit kit
 
 /**
  * .main classes
@@ -23,20 +24,13 @@ define( 'GOOGLE_ANALYTICS_ID', '' ); // UA-XXXXX-Y (Note: Universal Analytics on
 function roots_main_class() {
 	if ( roots_display_sidebar() ) {
 		// Classes on pages with the sidebar
-		$class = 'small-12 medium-8';
-	} else {
-		// Classes on full width pages
-		$class = 'small-12';
+		$class = 'with-sidebar';
+	}
+	else {
+		$class = '';
 	}
 
-	return apply_filters( 'roots/main_class', $class );
-}
-
-/**
- * .sidebar classes
- */
-function roots_sidebar_class() {
-	return apply_filters( 'roots/sidebar_class', 'small-12 medium-4' );
+	echo apply_filters( 'roots/main_class', $class );
 }
 
 /**

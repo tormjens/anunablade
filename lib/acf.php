@@ -22,6 +22,34 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
 }
 
+/**	
+ * Change json paths
+ */
+ 
+add_filter('acf/settings/save_json', 'anuna_acf_json_save_point');
+ 
+function anuna_acf_json_save_point( $path ) {
+    
+    // update path
+    $path = get_template_directory() . '/lib/fields';
+    
+    // return
+    return $path;
+    
+}
+
+add_filter('acf/settings/load_json', 'anuna_acf_json_load_point');
+
+function anuna_acf_json_load_point( $paths ) {
+    
+    // only load the one path
+    $paths = array( get_stylesheet_directory() . '/lib/fields' );
+    
+    // return
+    return $paths;
+    
+}
+
 /**
  * Register field groups
  */

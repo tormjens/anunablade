@@ -31,5 +31,11 @@
   "bugs": {
     "url": "https://github.com/schikulski/gromf/issues"
   },
-  "homepage": "https://github.com/schikulski/gromf"
+  "homepage": "https://github.com/schikulski/gromf",
+  "dependencies": {
+    "bower": "^1.4.1",
+    "gulp-file": "^0.2.0",
+    "underscore": "^1.8.3",
+    "underscore.string": "^3.1.1"
+  }
 }

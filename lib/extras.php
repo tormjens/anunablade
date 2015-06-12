@@ -73,10 +73,10 @@ function livereload() {
 }
 
 // Runs the livereload function if domain contains .dev — edit to fit your own needs
-// $host = $_SERVER['HTTP_HOST']; 
-// if (strpos($host,'.dev') !== false) {
+$host = $_SERVER['HTTP_HOST']; 
+if (strpos($host,'.dev') !== false && strpos($host,'.com') === false) {
 		add_action('wp_enqueue_scripts', 'livereload');
-// }
+}
 
 /**
  * Removes default dashboard widgets
@@ -121,7 +121,11 @@ add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 // }
 // add_action('admin_head', 'adminstyle');
 
-
+if(!function_exists('get_partial')) {
+	function get_partial($slug, $template = '') {
+		get_template_part('templates/'. $slug, $template);
+	}
+}
 
 
 
