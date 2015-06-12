@@ -8138,3 +8138,147 @@ window.Modernizr = (function( window, document, undefined ) {
     };
 
 })( jQuery );
+var BrowserDetect = {
+        init: function () {
+            this.browser = this.searchString(this.dataBrowser) || "Other";
+            this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "Unknown";
+        },
+        searchString: function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var dataString = data[i].string;
+                this.versionSearchString = data[i].subString;
+
+                if (dataString.indexOf(data[i].subString) !== -1) {
+                    return data[i].identity;
+                }
+            }
+        },
+        searchVersion: function (dataString) {
+            var index = dataString.indexOf(this.versionSearchString);
+            if (index === -1) {
+                return;
+            }
+
+            var rv = dataString.indexOf("rv:");
+            if (this.versionSearchString === "Trident" && rv !== -1) {
+                return parseFloat(dataString.substring(rv + 3));
+            } else {
+                return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
+            }
+        },
+
+        dataBrowser: [
+            {string: navigator.userAgent, subString: "Chrome", identity: "Chrome"},
+            {string: navigator.userAgent, subString: "MSIE", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Trident", identity: "Explorer"},
+            {string: navigator.userAgent, subString: "Firefox", identity: "Firefox"},
+            {string: navigator.userAgent, subString: "Safari", identity: "Safari"},
+            {string: navigator.userAgent, subString: "Opera", identity: "Opera"}
+        ]
+
+    };
+    
+    BrowserDetect.init();
+/**	
+ * Add classes and other stuff based on 
+ * which browser the current user is using
+ */
+(function($) {
+
+	var browsertime = {
+		/**	
+		 * Converts a text string to a slug
+		 * @param  {String} Text Text
+		 * @return {String}
+		 */
+		convertToSlug: function(Text) {
+		    return Text
+		        .toLowerCase()
+		        .replace(/[^\w ]+/g,'')
+		        .replace(/ +/g,'-');
+		},
+		init: function() {
+			/**
+			 * Variables
+			 */
+			var browser = this.convertToSlug(BrowserDetect.browser), // Get the slug for the browser name
+				browserVer = this.convertToSlug(BrowserDetect.browser + ' ' + BrowserDetect.version); // Gets the slug for the browser name and the current version
+
+			// this is where we should classify
+			var $html = $('html');
+
+			// for internet exploder we're using something special
+			if(BrowserDetect.browser === 'Explorer') {
+
+				// add a class that says its ie, and which ie it is
+				$html.addClass('ie').addClass('ie-'+ BrowserDetect.version);
+				
+				// we always find ourselves in situations where versions 
+				// lesser than IE9 need special haxx. lets add a class
+				if(BrowserDetect.version <= 9) {
+					$html.addClass('ie-lt-9');
+				}
+			}
+			else {
+				// we (almost) love every other browsers, so we add a 
+				// class to what browser we have nad which version it is
+				$html.addClass(browser).addClass(browserVer);
+			}
+		}
+	};
+
+	browsertime.init();
+
+})(jQuery); // Fully reference jQuery after this point.
+
+/**
+ * DOM Based routing
+ */
+
+(function($) {
+
+	$(document).router({
+		common: function() {
+			$(document).foundation();
+		},
+		home: function() {
+			// Cool
+		}
+	});
+
+})(jQuery); // Fully reference jQuery after this point.
+
+/**	
+ * Off Canvas Navigation
+ */
+
+jQuery(document).ready(function($) {
+
+	$('.navigation-container button.trigger').on('click', function() {
+		$('.navigation-container').toggleClass('is-open');
+		$('body').toggleClass('navigation-open');
+	});
+
+	$('.navigation-inner li a').last().on('keydown', function(e) {
+		if (!e.shiftKey) {
+			e.preventDefault();
+			$('.navigation-container button.trigger').trigger('click');
+			$('#content').find('a').first().focus();
+		}
+	});
+
+	$('.navigation-inner li a').first().on('focus', function(e) {
+		if (!e.shiftKey) {
+			e.preventDefault();
+			$('.navigation-container button.trigger').trigger('click');
+		}
+	});
+	
+	var i = 1;
+
+	$('.navigation-inner li').each(function() {
+		$(this).addClass('item-' + i);
+		i++;
+	});
+
+});

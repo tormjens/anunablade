@@ -12,7 +12,7 @@
 		<span class="label">Menu</span>
 	</button>
 	
-	<div class="navigation-wrapper">
+	<div class="navigation-wrapper" role="navigation">
 		<div class="navigation-inner">
 			<?php if ( has_nav_menu( 'primary_navigation' ) ) :
 				wp_nav_menu( array( 'theme_location' => 'primary_navigation', 'depth' => 2 ) );

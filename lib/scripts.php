@@ -11,9 +11,9 @@
  */
 function roots_scripts() {
 
-	$addon = '';
+	$addon = '.min';
 	if(defined('WP_DEBUG') && WP_DEBUG) {
-		$addon = '.min';
+		$addon = '';
 	}
 
 	wp_enqueue_style( 'roots_main', get_template_directory_uri() . '/assets/dist/css/main'. $addon .'.css', false );

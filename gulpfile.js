@@ -120,11 +120,11 @@ gulp.task('sass', function (){
  */
 gulp.task('javascripts', function(){
 	gulp.src([
-		'assets/js/vendor.js',
+		'assets/dist/js/vendor.js',
 		'assets/js/plugins/*.js',							// Gets all the user plugins
 		'assets/js/_*.js'])										// Gets all the user JS _*.js from assets/js
 		.pipe(concat('scripts.js'))							// Uglify(minify)
-		.pipe(gulp.dest('assets/js/dist/'))							// Concat all the scripts
+		.pipe(gulp.dest('assets/dist/js/'))							// Concat all the scripts
 		.pipe(rename({suffix: '.min'}))							// Rename it
 		.pipe(uglify())											// Uglify(minify)
 		.pipe(gulp.dest('assets/dist/js/'))							// Set destination to assets/js
