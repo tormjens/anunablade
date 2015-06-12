@@ -11,13 +11,11 @@ var rename = require('gulp-rename');// Rename files
 var notify = require('gulp-notify');// Writing stuff
 var livereload = require('gulp-livereload');// LiveReload
 var jshint = require("gulp-jshint");// jshint
-
 var bower = require('bower'); // Bower
 var underscore = require('underscore');
 var underscoreStr = require('underscore.string');
 var file = require('gulp-file');
 var fs = require("fs");
-
 
 /**
  * Bower
@@ -96,10 +94,9 @@ gulp.task('bundle-libraries-auto', ['bower'], function(){
 	// run the gulp stream
 	return gulp.src(mainFiles)
 		.pipe(concat('vendor.js'))
-		.pipe(gulp.dest('assets/js/'))
+		.pipe(gulp.dest('assets/dist/js/'))
 		.pipe(notify('Bower packages compiled!'));
 });
-
 
 /**
  * Compile all the CSS
@@ -110,10 +107,10 @@ gulp.task('sass', function (){
 		'assets/scss/app.scss'])                                   // Gets the apps scss
 		.pipe(sass({style: 'compressed', errLogToConsole: true}))  // Compile sass
 		.pipe(concat('main.css'))                                // Minify the CSS
-		.pipe(gulp.dest('assets/css/'))                               // Concat all css
+		.pipe(gulp.dest('assets/dist/css/'))                               // Concat all css
 		.pipe(rename({suffix: '.min'}))                            // Rename it
 		.pipe(minifycss())                                         // Minify the CSS
-		.pipe(gulp.dest('assets/css/'))                            // Set the destination to assets/css
+		.pipe(gulp.dest('assets/dist/css/'))                            // Set the destination to assets/css
 		.pipe(livereload())                                        // Reloads server
 		.pipe(notify('Sass compiled & minified'));                 // Output to notification
 });
@@ -127,15 +124,13 @@ gulp.task('javascripts', function(){
 		'assets/js/plugins/*.js',							// Gets all the user plugins
 		'assets/js/_*.js'])										// Gets all the user JS _*.js from assets/js
 		.pipe(concat('scripts.js'))							// Uglify(minify)
-		.pipe(gulp.dest('assets/js/'))							// Concat all the scripts
+		.pipe(gulp.dest('assets/js/dist/'))							// Concat all the scripts
 		.pipe(rename({suffix: '.min'}))							// Rename it
 		.pipe(uglify())											// Uglify(minify)
-		.pipe(gulp.dest('assets/js/'))							// Set destination to assets/js
+		.pipe(gulp.dest('assets/dist/js/'))							// Set destination to assets/js
 		.pipe(livereload())									// Reloads server
 		.pipe(notify('Javascripts compiled and minified'));			// Output to notification
 });
-
-
 
 /**
  * Copy jquery and modernizr to be native
@@ -147,22 +142,19 @@ gulp.task('copy-modernizr', function(){
 	return gulp.src('bower_components/modernizr/modernizr.js')	// Gets Modernizr
 	.pipe(uglify())																				// Uglify(minify)
 	.pipe(rename({suffix: '.min'}))									// Rename it
-	.pipe(gulp.dest('assets/js/'))							// Set destination to assets/js
+	.pipe(gulp.dest('assets/dist/js/'))							// Set destination to assets/js
 	.pipe(notify('Modernizr copied'));					// Output to notification
 });
 
 gulp.task('copy-jquery', function(){
 	return gulp.src('bower_components/jquery/dist/jquery.min.js')				// Gets Jquery
-	.pipe(gulp.dest('assets/js/'))									// Set destination to assets/js
+	.pipe(gulp.dest('assets/dist/js/'))									// Set destination to assets/js
 	.pipe(notify('jQuery copied'));											// Output to notification
 });
-
-
 
 /**	
  * JS Hints
  */
-
 gulp.task('jshint', function() {
 	return gulp.src('assets/js/_*.js')
 		.pipe(jshint())
@@ -181,7 +173,9 @@ gulp.task('jshint', function() {
 		}));
 });
 
-
+/**
+ * Vendor scripts
+ */
 gulp.task('vendor', function(){
 
   var assetsFile = JSON.parse(fs.readFileSync('./vendors.json', 'utf8'));
@@ -202,17 +196,14 @@ gulp.task('vendor', function(){
   // run the gulp stream
   return gulp.src(mainFiles)
     .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('./assets/js'))								// Set destination to assets/js
+    .pipe(gulp.dest('./assets/dist/js'))								// Set destination to assets/js
 	.pipe(notify('Vendor scripts compiled'));	
-
 
 });
 
 /**	
  * Watch files and folders
  */
-
-
 gulp.task('watch', function(){
 
 	var server = livereload();
