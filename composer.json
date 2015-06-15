@@ -1,0 +1,24 @@
+{
+  "name": "anunatak/anunastart",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "description": "The Anunatak WordPress plugin",
+  "homepage": "https://anunatak.no",
+  "authors": [
+    {
+      "name": "Tor Morten Jensen",
+      "email": "tormorten@anunatak.com",
+      "homepage": "https://github.com/tormjens"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "support": {
+    "issues": "https://github.com/Anunatak/anunastart/issues"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "~1.0"
+  }
+}
