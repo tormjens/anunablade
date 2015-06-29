@@ -7,6 +7,8 @@
 	$(document).router({
 		common: function() {
 			$(document).foundation();
+
+			$('.acf-map').map();
 		},
 		home: function() {
 			// Cool
