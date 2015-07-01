@@ -1,34 +1,58 @@
-/**	
+/**
  * Off Canvas Navigation
  */
+(function($) {
 
-jQuery(document).ready(function($) {
+	/**
+	 * Variables
+	 */
+	var $container 				= $('.navigation-container'),
+		$body 					= $('body'),
+		$content 				= $('#content'),
+		$trigger 				= $container.find('button.trigger'),
+		$inner 					= $container.find('.navigation-inner'),
+		containerActiveClass	= 'is-open',
+		bodyActiveClass			= 'navigation-open',
+		itemStart 				= 1,
+		itemPrefix				= 'item-';
 
-	$('.navigation-container button.trigger').on('click', function() {
-		$('.navigation-container').toggleClass('is-open');
-		$('body').toggleClass('navigation-open');
+	/**
+	 * What happens when the trigger is clicked
+	 */
+	$trigger.on('click', function() {
+		$container.toggleClass(containerActiveClass);
+		$body.toggleClass(bodyActiveClass);
 	});
 
-	$('.navigation-inner li a').last().on('keydown', function(e) {
+	/**
+	 * When someone leaves the last item in the menu,
+	 * we'll collapse the menu
+	 */
+	$inner.find('li a').last().on('keydown', function(e) {
 		if (!e.shiftKey) {
 			e.preventDefault();
-			$('.navigation-container button.trigger').trigger('click');
-			$('#content').find('a').first().focus();
+			$trigger.trigger('click');
+			$content.find('a').first().focus();
 		}
 	});
 
-	$('.navigation-inner li a').first().on('focus', function(e) {
+	/**
+	 * When the user arrives at the first item (by focus)
+	 * we'll expand the menu
+	 */
+	$inner.find('li a').first().on('focus', function(e) {
 		if (!e.shiftKey) {
 			e.preventDefault();
-			$('.navigation-container button.trigger').trigger('click');
+			$trigger.trigger('click');
 		}
 	});
-	
-	var i = 1;
 
-	$('.navigation-inner li').each(function() {
-		$(this).addClass('item-' + i);
-		i++;
+	/**
+	 * Add a class to each of the menu items
+	 */
+	$inner.find('li').each(function() {
+		$(this).addClass(itemPrefix + itemStart);
+		itemStart++;
 	});
 
-});
+})(jQuery); // Fully reference jQuery after this point.
