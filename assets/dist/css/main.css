@@ -5220,7 +5220,10 @@ a.skip {
     top: 1.875rem;
     background-color: transparent;
     color: #008CBA;
-    font-size: 1.125rem; }
+    font-size: 1.125rem;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
   .navigation-container .trigger:hover span.lines, .navigation-container .trigger:focus span.lines {
     background-color: #000; }
     .navigation-container .trigger:hover span.lines:before, .navigation-container .trigger:focus span.lines:before {

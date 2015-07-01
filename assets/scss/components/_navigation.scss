@@ -68,6 +68,7 @@ $navigation-speed: .8s;
 			background-color: transparent;
 			color: $navigation-trigger-color;
 			font-size: rem-calc(18);
+			@include transition(all .3s ease-in-out);
 		}
 
 		&:hover, &:focus {
@@ -86,7 +87,7 @@ $navigation-speed: .8s;
 			}
 		}
 	}
-	
+
 	.navigation-wrapper {
 		position: fixed;
 		top: 0;
