@@ -16,6 +16,7 @@ var underscore = require('underscore');
 var underscoreStr = require('underscore.string');
 var file = require('gulp-file');
 var fs = require("fs");
+var favicons = require("gulp-favicons");
 
 /**
  * Bower
@@ -152,7 +153,7 @@ gulp.task('copy-jquery', function(){
 	.pipe(notify('jQuery copied'));											// Output to notification
 });
 
-/**	
+/**
  * JS Hints
  */
 gulp.task('jshint', function() {
@@ -197,11 +198,22 @@ gulp.task('vendor', function(){
   return gulp.src(mainFiles)
     .pipe(concat('vendor.js'))
     .pipe(gulp.dest('./assets/dist/js'))								// Set destination to assets/js
-	.pipe(notify('Vendor scripts compiled'));	
+	.pipe(notify('Vendor scripts compiled'));
 
 });
 
-/**	
+gulp.task('favicon', function () {
+    gulp.src('templates/favicons.php')
+        .pipe(favicons({
+            files: { src: 'assets/img/favicon.png', dest: '../assets/img/favicons/' },
+            settings: { background: '#ffffff', logging: true, url: '<?php echo get_template_directory_url() ?>'  }
+        }, function(code) {
+        	return code.replace('../assets/', '<?php echo get_template_directory_url() ?>/assets/');
+        }))
+        .pipe(gulp.dest('templates/'));
+});
+
+/**
  * Watch files and folders
  */
 gulp.task('watch', function(){
