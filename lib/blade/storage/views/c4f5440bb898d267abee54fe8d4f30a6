@@ -1,3 +1,4 @@
+<?php // /srv/www/wordpress-trunk/wp-content/themes/anunablade/front-page.php ?>
 <?php
 /**
  * Template for displaying the front page
@@ -9,6 +10,3 @@
 	<?php get_template_part( 'templates/page', 'header' ); ?>
 	<?php get_template_part( 'templates/content', 'page' ); ?>
 <?php endwhile; ?>
-
-<div class="acf-map"></div>
-<div class="acf-map"></div>
