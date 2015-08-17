@@ -60,6 +60,10 @@ class Roots_Blade {
 		if( ! $template )
 			return $template; // Noting to do here. Come back later.
 
+		// all templates for our engine must live in the template directory
+		if( stripos( $template, get_template_directory() ) === FALSE ) {
+			return $template;
+		}
 
 		if( $this->viewExpired($template) ) {
 
@@ -135,6 +139,9 @@ class Roots_Blade {
 		// add @acfrepeater
 		$this->blade->getCompiler()->extend(function($view, $compiler)
 		{
+			if(!function_exists('get_field')) {
+				return $view;
+			}
 		    $pattern = '/(\s*)@acfrepeater\(((\s*)(.+))\)/';
 			$replacement = '$1<?php if ( have_rows( $2 ) ) : ';
 			$replacement .= 'while ( have_rows( $2 ) ) : the_row(); ?>';
@@ -142,9 +149,50 @@ class Roots_Blade {
 		    return preg_replace($pattern, $replacement, $view);
 		});
 
+		// add @subfield
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+			if(!function_exists('get_field')) {
+				return $view;
+			}
+		    $pattern = '/(\s*)@subfield\(((\s*)(.+))\)/';
+			$replacement = '$1<?php if ( get_sub_field( $2 ) ) : ';
+			$replacement .= 'the_sub_field($2); endif; ?>';
+
+		    return preg_replace($pattern, $replacement, $view);
+		});
+
+		// add @field
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+			if(!function_exists('get_field')) {
+				return $view;
+			}
+		    $pattern = '/(\s*)@field\(((\s*)(.+))\)/';
+			$replacement = '$1<?php if ( get_field( $2 ) ) : ';
+			$replacement .= 'the_field($2); endif; ?>';
+
+		    return preg_replace($pattern, $replacement, $view);
+		});
+
+		// add @hasfield
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+			if(!function_exists('get_field')) {
+				return $view;
+			}
+		    $pattern = '/(\s*)@hasfield\(((\s*)(.+))\)/';
+			$replacement = '$1<?php if ( get_field( $2 ) ) : ?>';
+
+		    return preg_replace($pattern, $replacement, $view);
+		});
+
 		// add @acfend
 		$this->blade->getCompiler()->extend(function($view, $compiler)
 		{
+			if(!function_exists('get_field')) {
+				return $view;
+			}
 		    return str_replace('@acfend', '<?php endwhile; endif; ?>', $view);
 		});
 
