@@ -1,6 +1,6 @@
-# Anunastart
+# AnunaBalde
 
-Anunastart is based on Gromf, but has some adjustments and improvements for better workflow.
+AnunaBlade is based on Anunastart, but has some adjustments and improvements for even better workflow.
 
 Gromf is a WordPress starter theme based on [Roots](https://github.com/roots/roots) 7.0, using [Foundation](http://foundation.zurb.com) & [Gulp](http://gulpjs.com) instead of Bootstrap & Grunt.
 
@@ -15,6 +15,10 @@ Add your scripts within the `vendors.json` file and they magically become part o
 Roots has this thing they call DOM Based routing. In Anunastart you can route your stuff in the same way, except we are using this awesome jQuery-plugin called [jquery-dom-router](https://github.com/tormjens/jquery-dom-router).
 
 It's kind of exactly the same, only it responds to live changes of classes on your `<body>`-tag and the syntax is way sexier. Check it out!
+
+## Blade
+
+Blade is the template language of the excellent Laravel framework. Anunablade bases all of its templates on it.
 
 
 
