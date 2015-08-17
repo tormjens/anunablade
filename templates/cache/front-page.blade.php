@@ -8,5 +8,7 @@
 	@wpempty
 		@include('content.404')
 	@wpend
-
 @endsection
+
+@scripts(['bower_components/fastclick/lib/fastclick.js'])
+
