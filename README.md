@@ -1,4 +1,4 @@
-# AnunaBalde
+# AnunaBlade
 
 AnunaBlade is based on Anunastart, but has some adjustments and improvements for even better workflow.
 
@@ -18,7 +18,7 @@ It's kind of exactly the same, only it responds to live changes of classes on yo
 
 ## Blade
 
-Blade is the template language of the excellent Laravel framework. Anunablade bases all of its templates on it.
+Blade is the template language of the excellent Laravel framework. Anunablade bases all of its templates on it, thanks to [Blade for Wordpress](https://github.com/tormjens/wp-blade).
 
 
 
