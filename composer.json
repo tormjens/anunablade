@@ -9,6 +9,6 @@
         }
     ],
     "require": {
-        "philo/laravel-blade": "^3.0"
+        "tormjens/wp-blade": "^1.0"
     }
 }

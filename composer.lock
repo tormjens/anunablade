@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b28fd02e258e5a1cbfc1462d3603633",
+    "hash": "2786025465c2e1c3a1100611b9cc375d",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -498,6 +498,42 @@
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
             "time": "2015-07-09 16:07:40"
+        },
+        {
+            "name": "tormjens/wp-blade",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tormjens/wp-blade.git",
+                "reference": "c40da96f16e68e63fd2178b190e5017eb4123a8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tormjens/wp-blade/zipball/c40da96f16e68e63fd2178b190e5017eb4123a8d",
+                "reference": "c40da96f16e68e63fd2178b190e5017eb4123a8d",
+                "shasum": ""
+            },
+            "require": {
+                "philo/laravel-blade": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tormorten\\WPBlade\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tor Morten Jensen",
+                    "email": "tormorten@tormorten.no"
+                }
+            ],
+            "description": "Use Blade templates in your WordPress theme",
+            "time": "2015-08-17 11:29:44"
         }
     ],
     "packages-dev": [],
