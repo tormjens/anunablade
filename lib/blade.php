@@ -1,31 +1,185 @@
 <?php
-//WARNING: This file has been modified from it's original version by Zach Adams on 10-19-2014. You can find the original source code here: https://github.com/MikaelMattsson/blade
 
 /**
- * Root
+ * Uses the Blade templating engine
  */
-define( 'WP_BLADE_ROOT', dirname( __FILE__ ) . '/blade/' );
+class Roots_Blade {
 
-/**
-* Path for the application folder inside the theme
-*/
-define( 'WP_BLADE_APP_PATH', WP_BLADE_ROOT . '/application/' );
+	/**
+	 * Blade engine
+	 * @var Blade
+	 */
+	protected $blade;
 
-/**
- * Path of assets
- */
-define( 'WP_BLADE_ASSETS_PATH', WP_BLADE_ROOT . 'assets/' );
+	/**
+	 * View folder
+	 * @var string
+	 */
+	protected $views;
 
-/**
-* Path for the config folder
-*/
-define( 'WP_BLADE_CONFIG_PATH', WP_BLADE_APP_PATH . 'config/' );
+	/**
+	 * View cache
+	 * @var string
+	 */
+	protected $view_cache;
 
-/**
-* Path for libraries
-*/
-define( 'WP_BLADE_LIBRARIES_PATH', WP_BLADE_APP_PATH . 'lib/' );
+	/**
+	 * Cache folder
+	 * @var string
+	 */
+	protected $cache;
+
+	/**
+	 * Set up hooks and initialize Blade
+	 */
+	public function __construct() {
+
+		require get_template_directory() .'/vendor/autoload.php';
+
+		$this->views = get_template_directory() . '/templates';
+		$this->cache = WP_CONTENT_DIR . '/blade_cache';
+		$this->view_cache = $this->views . '/cache';
+
+		$this->blade = new Philo\Blade\Blade($this->views, $this->cache);
+		$this->extend();
+
+		// Bind to template include action
+		add_action( 'template_include', array( $this, 'blade_include' ) );
+
+		// Listen for Buddypress include action
+		add_filter( 'bp_template_include', array( $this, 'blade_include' ));
+
+	}
+
+	/**
+	 * Include the template
+	 * @return string
+	 */
+	public function blade_include( $template ) {
+
+		if( ! $template )
+			return $template; // Noting to do here. Come back later.
 
 
-require_once ( WP_BLADE_CONFIG_PATH . '/initialize.php' );
-WP_Blade_Main_Controller::make();
+		if( $this->viewExpired($template) ) {
+
+			// get the base name
+			$file = basename($template);
+
+			// with a blade extension, we have to do this because blade wont recognize the root files without the .blade.php extension
+			$blade = str_replace('.php', '.blade.php', $file);
+			$blade_file = $this->view_cache . '/' . $blade;
+
+			// get the code
+			$code = file_get_contents($template);
+
+			// add the code to the cached blade file
+			file_put_contents($blade_file, $code);
+
+			// blade friendly name
+			$view = str_replace('.php', '', $file);
+
+			// run the blade code
+			echo $this->blade->view()->make('cache.'. $view)->render();
+
+			// halt including
+			return '';
+		}
+		else {
+
+			// get the base name
+			$file = basename($template);
+
+			// blade friendly name
+			$view = str_replace('.php', '', $file);
+
+			// run the blade code
+			echo $this->blade->view()->make('cache.'. $view)->render();
+
+			// halt including
+			return '';
+		}
+
+		// return an empty string to stop wordpress from including the template when we are doing it
+		return $template;
+	}
+
+	/**
+	 * Checks if the view was changed after we stored it for caching
+	 * @param  string $path Path to the file
+	 * @return boolean
+	 */
+	protected function viewExpired($path) {
+
+		$file = basename($path);
+
+		$blade = str_replace('.php', '.blade.php', $file);
+		$blade_file = $this->view_cache . '/' . $blade;
+
+		if(!file_exists($blade_file)) {
+			return true;
+		}
+
+		$lastModified = filemtime($path);
+
+        return $lastModified >= filemtime($blade_file);
+
+	}
+
+	/**
+	 * Extend blade
+	 * @return void
+	 */
+	protected function extend() {
+
+		// add @acfrepeater
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+		    $pattern = '/(\s*)@acfrepeater\(((\s*)(.+))\)/';
+			$replacement = '$1<?php if ( have_rows( $2 ) ) : ';
+			$replacement .= 'while ( have_rows( $2 ) ) : the_row(); ?>';
+
+		    return preg_replace($pattern, $replacement, $view);
+		});
+
+		// add @acfend
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+		    return str_replace('@acfend', '<?php endwhile; endif; ?>', $view);
+		});
+
+		// add @wpposts
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+		    return str_replace('@wpposts', '<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>', $view);
+		});
+
+		// add @wpquery
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+		    $pattern = '/(\s*)@wpquery(\s*\(.*\))/';
+			$replacement  = '$1<?php $bladequery = new WP_Query$2; ';
+			$replacement .= 'if ( $bladequery->have_posts() ) : ';
+			$replacement .= 'while ( $bladequery->have_posts() ) : ';
+			$replacement .= '$bladequery->the_post(); ?> ';
+
+			return preg_replace( $pattern, $replacement, $view );
+		});
+
+		// add @wpempty
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+		    return str_replace('@wpempty', '<?php endwhile; ?><?php else: ?>', $view);
+		});
+
+		// add @wpend
+		$this->blade->getCompiler()->extend(function($view, $compiler)
+		{
+		    return str_replace('@wpend', '<?php endif; wp_reset_postdata(); ?>', $view);
+		});
+
+	}
+
+}
+
+new Roots_Blade;

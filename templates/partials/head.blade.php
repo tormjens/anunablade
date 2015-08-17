@@ -10,7 +10,7 @@
 
 	{{ wp_head() }}
 
-	@include('templates.partials.favicon')
+	@include('partials.favicon')
 
 	<link rel="alternate" type="application/rss+xml" title="{{ get_bloginfo( 'name' ) }} Feed" href="{{ esc_url( get_feed_link() ) }}">
 </head>

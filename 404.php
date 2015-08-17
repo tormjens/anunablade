@@ -1,20 +1,7 @@
-<?php
-/**
- * Error file
- *
- * @package anunastart
- */
-?>
-<?php get_template_part( 'templates/page', 'header' ); ?>
+@extends('layouts.base')
 
-<div data-alert class="alert-box warning">
-	<?php _e( 'Looks like the page you were trying to view does not exist.', 'roots' ); ?>
-</div>
+@section('content')
 
-<p><?php _e( 'It looks like this was the result of either:', 'roots' ); ?></p>
-<ul>
-	<li><?php _e( 'a mistyped address', 'roots' ); ?></li>
-	<li><?php _e( 'an out-of-date link', 'roots' ); ?></li>
-</ul>
+	@include('content.404')
 
-<?php get_search_form(); ?>
+@endsection

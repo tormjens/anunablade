@@ -1,14 +1,12 @@
-<?php
-/**
- * Template Name: Custom Template
- *
- * A page template
- *
- * @package anunastart
- */
-?>
+{{-- Template Name: Custom Template --}}
+@extends('templates.layouts.base')
 
-<?php while ( have_posts() ) : the_post(); ?>
-	<?php get_template_part( 'templates/page', 'header' ); ?>
-	<?php get_template_part( 'templates/content', 'page' ); ?>
-<?php endwhile; ?>
+@section('content')
+
+	@wpposts
+		@include('templates.content.page')
+	@wpempty
+		@include('templates.content.404')
+	@wpend
+
+@endsection

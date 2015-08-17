@@ -1,12 +1,11 @@
-<?php
-/**
- * Template for displaying single content
- *
- * @package anunastart
- */
-?>
+@extends('layouts.base')
 
-<?php while ( have_posts() ) : the_post(); ?>
-	<?php get_template_part( 'templates/page', 'header' ); ?>
-	<?php get_template_part( 'templates/content', get_post_type() ); ?>
-<?php endwhile; ?>
+@section('content')
+
+	@wpposts
+		@include('content.single')
+	@wpempty
+		@include('content.404')
+	@wpend
+
+@endsection

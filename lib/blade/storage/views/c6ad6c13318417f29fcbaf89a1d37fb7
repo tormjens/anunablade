@@ -1,8 +1,0 @@
-<?php // /srv/www/wordpress-trunk/wp-content/themes/anunablade/page.php ?>
-
-<?php \Laravel\Section::start('content'); ?>
-
-  <?php echo view('templates.content.index')->with(get_defined_vars())->render(); ?>
-
-<?php \Laravel\Section::stop(); ?>
-<?php echo view('templates.layouts.base')->with(get_defined_vars())->render(); ?>
