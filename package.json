@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "gulp": "^3.8.8",
-    "laravel-elixir": "*",
     "gulp-file": "^0.2.0",
+    "laravel-elixir": "*",
+    "laravel-elixir-livereload": "^1.1.2"
   }
 }
