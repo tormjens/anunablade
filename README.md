@@ -4,6 +4,15 @@ AnunaBlade is based on Anunastart, but has some adjustments and improvements for
 
 Gromf is a WordPress starter theme based on [Roots](https://github.com/roots/roots) 7.0, using [Foundation](http://foundation.zurb.com) & [Gulp](http://gulpjs.com) instead of Bootstrap & Grunt.
 
+## Requirements
+| Prerequisite    | How to check         | How to install
+| --------------- | -------------------- | ------------- |
+| PHP >= 5.4.x    | `php -v`             | [php.net](http://php.net/manual/en/install.php) |
+| NPM 2.11.1      | `npm -v`             | [npmjs.com](https://www.npmjs.com/) |
+| gulp >= 3.8.11  | `gulp -v`            | `npm install -g gulp` |
+| Bower >= 1.3.12 | `bower -v`           | `npm install -g bower` |
+| Composer        | `composer --version` | [getcomposer.org](http://getcomposer.org) |
+
 ## Gulp / Elixir
 
 To limit the need to stop and start Gulp to add bower-scripts and other stuff that is needed on all page requests, we've added a simpler method.
@@ -39,13 +48,8 @@ Blade is the template language of the excellent Laravel framework. Anunablade ba
 
 ## Getting Started
 
-1. Install Composer dependencies
-   `composer install`
-2. Install NPM packages
-   `[sudo] npm install`
-3. Install Bower dependencies
-   `bower install`
-4. Run Gulp for the first time
-   `gulp`
-   For more tasks see the above explaination.
+1. Install Composer dependencies: `composer install`
+2. Install NPM packages: `[sudo] npm install`
+3. Install Bower dependencies: `bower install`
+4. Run Gulp for the first time: `gulp` (For more options see the above explaination)
 
