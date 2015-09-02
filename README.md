@@ -4,11 +4,28 @@ AnunaBlade is based on Anunastart, but has some adjustments and improvements for
 
 Gromf is a WordPress starter theme based on [Roots](https://github.com/roots/roots) 7.0, using [Foundation](http://foundation.zurb.com) & [Gulp](http://gulpjs.com) instead of Bootstrap & Grunt.
 
-## Gulp
+## Gulp / Elixir
 
 To limit the need to stop and start Gulp to add bower-scripts and other stuff that is needed on all page requests, we've added a simpler method.
 
 Add your scripts within the `vendors.json` file and they magically become part of your scripts.js file (if you've booted gulp of course).
+
+We also use somehting called Elixir, which was created by the folks behind Laravel. It simplifies the task running process, and gives it a much cleaner syntax.
+
+### Compile all
+```
+gulp
+```
+
+### Prepare for production
+```
+gulp --production
+```
+
+### To watch the files and livereload the browser
+```
+gulp watch
+```
 
 ## DOM Based Router
 
@@ -19,10 +36,6 @@ It's kind of exactly the same, only it responds to live changes of classes on yo
 ## Blade
 
 Blade is the template language of the excellent Laravel framework. Anunablade bases all of its templates on it, thanks to [Blade for Wordpress](https://github.com/tormjens/wp-blade).
-
-## Elixir
-
-Elixir also stems from Laravel (yes, we love Laravel). It's awesome!
 
 
 
