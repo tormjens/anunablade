@@ -37,6 +37,15 @@ It's kind of exactly the same, only it responds to live changes of classes on yo
 
 Blade is the template language of the excellent Laravel framework. Anunablade bases all of its templates on it, thanks to [Blade for Wordpress](https://github.com/tormjens/wp-blade).
 
+## Getting Started
 
-
+1. Install Composer dependencies
+   `composer install`
+2. Install NPM packages
+   `[sudo] npm install`
+3. Install Bower dependencies
+   `bower install`
+4. Run Gulp for the first time
+   `gulp`
+   For more tasks see the above explaination.
 
