@@ -20,6 +20,10 @@ It's kind of exactly the same, only it responds to live changes of classes on yo
 
 Blade is the template language of the excellent Laravel framework. Anunablade bases all of its templates on it, thanks to [Blade for Wordpress](https://github.com/tormjens/wp-blade).
 
+## Elixir
+
+Elixir also stems from Laravel (yes, we love Laravel). It's awesome!
+
 
 
 
