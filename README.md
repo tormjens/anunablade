@@ -13,13 +13,11 @@ Gromf is a WordPress starter theme based on [Roots](https://github.com/roots/roo
 | Bower >= 1.3.12 | `bower -v`           | `npm install -g bower` |
 | Composer        | `composer --version` | [getcomposer.org](http://getcomposer.org) |
 
-## Gulp / Elixir
+## Gulp
 
 To limit the need to stop and start Gulp to add bower-scripts and other stuff that is needed on all page requests, we've added a simpler method.
 
 Add your scripts within the `vendors.json` file and they magically become part of your scripts.js file (if you've booted gulp of course).
-
-We also use somehting called Elixir, which was created by the folks behind Laravel. It simplifies the task running process, and gives it a much cleaner syntax.
 
 ### Compile all
 ```
